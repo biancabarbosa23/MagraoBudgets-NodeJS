@@ -2,6 +2,7 @@ import { Router } from "express";
 import { CreateProductsController } from "./modules/Products/useCases/createProduct/CreateProductsController";
 import { FindProductsController } from "./modules/Products/useCases/findProducts/FindProductsController";
 import { CreateBudgetController } from "./modules/Budgets/useCases/createBudget/CreateBudgetController";
+import { CreateBudgetProductsController } from "./modules/BudgetProducts/useCases/createBudgetProducts/CreateBudgetProductsController";
 
 const router = Router();
 
@@ -16,5 +17,10 @@ router.get("/products", findProducts.handle);
 const createBudget = new CreateBudgetController();
 
 router.post("/budget", createBudget.handle);
+
+// Budget Products
+const createBudgetProducts = new CreateBudgetProductsController();
+
+router.post("/budget/products", createBudgetProducts.handle);
 
 export { router };
